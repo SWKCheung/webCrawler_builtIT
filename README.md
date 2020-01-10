@@ -6,7 +6,7 @@ The webSpider.py will automatically visit all underlying pages with a given star
 
 #### Design
 
-![alt text] (https://github.com/SWKCheung/webCrawler_builtIT/blob/master/webspiderFlow.PNG)
+![alt text](https://github.com/SWKCheung/webCrawler_builtIT/blob/master/webspiderFlow.PNG)
 
 (Links) = URLs (both image tag or a tag for the interest of this project)
 
