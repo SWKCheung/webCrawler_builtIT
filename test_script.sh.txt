@@ -1,0 +1,11 @@
+!#/bin/bash
+python webspider.py "https://www.wiprodigital.com" | tee -a log.txt
+
+status=`echo log.txt | grep -i -c "exit 0"`
+if [ ${status} > 0 ] ; then
+  echo "successfully"
+  exit 0
+else
+  echo "Test failed"
+  exit 1
+fi
