@@ -1,4 +1,4 @@
-# webCrawler_builtIT
+# webSpider
 
 ## Project background
 Scanning through web page is tedious and repeatitive. 
@@ -25,10 +25,18 @@ python webspider.py start_url
 
 (i.e.) python webspider.py "www.yahoo.com"
 
+
+
+
 #### Testing
 At console, it displays from parent page to all child pages and at the end it shows totally number of pages that the webspider has been visited.
 
+
+
 #### Enhancement if time allow
-Visualization of the produced result perhelps in graphical tree structure similiar to site map
-Data analytics on the result of webspider.py
+Visualization of the produced result perhelps in **graphical tree structure** similiar to site map
+Data analytics on the result of *webspider.py*
+
+
+
 
