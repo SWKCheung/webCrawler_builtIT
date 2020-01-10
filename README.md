@@ -37,6 +37,10 @@ At console, it displays from parent page to all child pages and at the end it sh
 Visualization of the produced result perhelps in **graphical tree structure** similiar to site map
 Data analytics on the result of *webspider.py*
 
+#### Automating testing
+test_script.sh
+
+
 
 
 
