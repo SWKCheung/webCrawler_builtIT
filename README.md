@@ -5,6 +5,9 @@ Scanning through web page is tedious and repeatitive.
 The webSpider.py will automatically visit all underlying pages with a given starter URL.
 
 #### Design
+
+![alt text] (https://github.com/SWKCheung/webCrawler_builtIT/blob/master/webspiderFlow.PNG)
+
 (Links) = URLs (both image tag or a tag for the interest of this project)
 
 The main program loop through each elmement (url) from a visited page and re-compute links for the next crawling acitivities. 
