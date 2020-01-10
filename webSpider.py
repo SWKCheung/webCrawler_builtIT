@@ -32,6 +32,8 @@ def getAndParseURL(current_url):
         result = requests.get(current_url)
         soup = BeautifulSoup(result.content, 'html.parser')
         url_list = soup.find_all('a', href=True)
+        img = soup.find_all('link', href=True)
+        url_list.extend(img)
         return url_list
 
 # Main loop until all pages are visited
@@ -44,16 +46,17 @@ while len(URL_4_Visits) != 0:
             if not any(x in url for x in exclude_list) and not any(url in v for v in visited) and url.startswith('http'):
                links.append(url)
                print(" visited : " + url)
-               visited.append(url)
+
             else:
                print(" skipped : " + url)
+            visited.append(url)
     # df["level" + str(level)] = pd.DataFrame(set(links), columns=['url'])
     level += 1
     URL_4_Visits = links
     if len(URL_4_Visits) == 0:
-        print("\n\n=====  visited pages ({}) =====".format(str(len(visited))))
+        print("\n\n=====  visited pages ({}) =====".format(str(len(set(visited)))))
         for out in set(visited):
-            if out != 'x':
+            if (out != 'x' or 'mailto' not in out) and out.startswith('http'):
                print(out)
     else:
         print("process level" + str(level))
