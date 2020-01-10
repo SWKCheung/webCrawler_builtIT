@@ -1,12 +1,30 @@
 import requests
 from bs4 import BeautifulSoup
-# import pandas as pd
-import time
+#import pandas as pd
+"""
+  Developer   : Sam Cheung
+  Date        : 1/10/2020
+  Version     : 1.0
+  Purpose     : This program is simulating web crawler or robot agent scanning web page URLs until all 
+                web pages are visited. Add any web site to the exclude_list if you want.
+  Dependencies: Python 3.8
+                BS4
+                Pandas(only required for analysis)             
+"""
 
+
+# Initial block #
 baseurl = "https://wiprodigital.com"
 URL_4_Visits = [baseurl]
 level = 1
-exclude_list = ["facebook.com", "twitter.com", "linkedin.com", "google.com", "statista.com", "ecommercedb.com", "ehi.org"]
+
+# exclusion list of sites
+exclude_list = ["facebook.com", "twitter.com", "linkedin.com", "google.com", "youtube.com",
+                "idc.com", "pega.com", "adobe.com", "statista.com", "ecommercedb.com",
+                "ehi.org", "designit.com", "mckinsey.com", "onstar.com", "support.mozilla.org",
+                "en.wikipedia.org", "s17776.pcdn.co", "aboutcookies.org", "support.microsoft.com", "cnbc.com"]
+
+# set dummy value to make list comparison work
 visited = ["x"]
 
 def getAndParseURL(current_url):
@@ -16,8 +34,7 @@ def getAndParseURL(current_url):
         url_list = soup.find_all('a', href=True)
         return url_list
 
-
-#def processURL(URL_4_Visits):
+# Main loop until all pages are visited
 while len(URL_4_Visits) != 0:
     for visiting in URL_4_Visits:
         links = []
@@ -33,4 +50,10 @@ while len(URL_4_Visits) != 0:
     # df["level" + str(level)] = pd.DataFrame(set(links), columns=['url'])
     level += 1
     URL_4_Visits = links
-    print("process level" + str(level))
+    if len(URL_4_Visits) == 0:
+        print("\n\n=====  visited pages ({}) =====".format(str(len(visited))))
+        for out in set(visited):
+            if out != 'x':
+               print(out)
+    else:
+        print("process level" + str(level))
